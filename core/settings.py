@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-$uuzrvsds-039dli$%i)5x!&2y25)nzp@@o40wm7t5@^5vb0&^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [os.getenv("ALLOWED_HOSTS")]
+# ALLOWED_HOSTS = [os.getenv("ALLOWED_HOSTS")]
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 LOCATION_PUSH_TOKEN = "everythingwillbeokoneday"
