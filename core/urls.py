@@ -21,8 +21,11 @@ from django.conf.urls.static import static
 from .swagger_conf import swagger_urlpatterns
 
 urlpatterns = [
-                  path('admin/', admin.site.urls),
-                  path('api/v1/', include('api.v1.urls')),
-                  *swagger_urlpatterns,
-
-              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('admin/', admin.site.urls),
+    path('api/v1/', include('api.v1.urls')),
+    *swagger_urlpatterns,
+]
+if settings.DEBUG:
+    # Only Django-serve these in development
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
