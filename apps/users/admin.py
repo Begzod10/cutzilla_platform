@@ -14,7 +14,7 @@ class UsersAdminForm(forms.ModelForm):
     class Meta:
         model = Users
         # include all fields you want editable in admin + this write-only password
-        fields = ("first_name", "last_name", "role", "telegram_id", "password")
+        fields = ("first_name", "last_name", "role", "username", "telegram_id", "password")
 
     def save(self, commit=True):
         user = super().save(commit=False)
