@@ -24,11 +24,12 @@ class SyncUserView(APIView):
         raw_password = "12345678"  # (better: generate one)
         user, created = Users.objects.get_or_create(
             telegram_id=telegram_id,
+            username=telegram_id,
             defaults=dict(
                 first_name=first_name,
                 last_name=last_name,
                 role=role,
-                username=username or str(telegram_id),
+
                 password=make_password(raw_password),  # ← hashed
             ),
         )
