@@ -14,7 +14,7 @@ class LoginAPIView(APIView):
     def post(self, request):
         serializer = LoginSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-
+        print("login valid")
         user = serializer.validated_data['user']
         telegram_id = request.data.get('telegram_id')
 
