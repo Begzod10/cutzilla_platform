@@ -53,5 +53,5 @@ class LoginAPIView(APIView):
             if barber:
                 payload['barber'] = BarberSerializer(barber).data
                 payload['user_id'] = user.id
-
+        print(payload)
         return Response(payload, status=status.HTTP_200_OK)
